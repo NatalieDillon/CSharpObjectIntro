@@ -20,6 +20,7 @@ namespace CSharpObjectIntro.Classes.Diary
         // Properties
         public string Name { get; private set; }
 
+        // Methods
         public void AddEvent(DateOnly date, int hours, string description, string location, int minutes = 0, int duration = 60)
         {
             var time = new TimeOnly(hours, minutes);
@@ -28,11 +29,15 @@ namespace CSharpObjectIntro.Classes.Diary
         }
 
         public int CheckDiary(DateOnly date)
-        {
+        {           
             return diaryEvents.Count(diaryEvent => diaryEvent.Date == date);
         }
 
         // Add a new method called check morning events
+        public int CheckMorningEvents(DateOnly date)
+        {
+            return diaryEvents.Count(diaryEvent => diaryEvent.Date == date && diaryEvent.IsMorning);
+        }
 
 
 

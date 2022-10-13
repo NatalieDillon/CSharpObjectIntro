@@ -10,11 +10,24 @@ namespace CSharpObjectIntro.Classes.BankAccount
     {
         // As you complete each task make sure you test your code carefully
         // Choose some combination of manual testing, Debug.Assert and unit tests
+        public decimal Balance { get; private set; }
+        public DateTime OpeningDate { get; private set; }
 
         // Task One        
         // The bank account should have a balance property        
         // It should have a constructor that sets the initial balance (default zero) and the opening date (default today)
         // It should have methods to deposit and withdraw/make payments from the account. 
+        public BankAccount(decimal balance, DateTime date)
+        {
+            Balance = balance;
+            OpeningDate = date;
+        }
+
+        public BankAccount()
+        {
+            Balance = 0;
+            OpeningDate = DateTime.Today;   
+        }
 
         // Task Two
         // Give the option to set an overdraft limit
@@ -30,6 +43,7 @@ namespace CSharpObjectIntro.Classes.BankAccount
         // Amend your bank account to contain a list of transactions
         // The methods for  deposit and withdraw/make payments should be amended to add transactions
 
+        
         // Task Four
         // Now add some new methods to your account
         // - See what the balance was at a previous date

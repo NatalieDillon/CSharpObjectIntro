@@ -9,15 +9,40 @@ namespace CSharpObjectIntro.Classes.Diary
     public class DiaryEvent
     {
         // Fields 
-        private TimeOnly _lunchTime = new(12, 0);
+        private readonly TimeOnly _lunchTime = new(12, 0);
+
+        private DateOnly _date;
 
         // Properties
-        public DateOnly Date { get; private set; }
+
+        // This property uses a backing field _date
+        public DateOnly Date { 
+            get
+            {
+                return _date;
+            }
+            private set
+            {
+                _date = value;
+            }
+        }
+
+        // These properties are auto implemented.
+        // The compiler creates fields for each auto-implemented property.
+        // The fields aren't accessible directly from the source code.
+        // Use auto-implemented properties where your get and set don't need to do anything
+        // You can change them to have backing fields later if you need to
         public TimeOnly Time { get; private set; }
         public int Minutes { get; private set; }
         public string Description { get; private set; }
         public string Location { get; private set; }
 
+        // This property doesn't have a direct backing field
+        // It could also be written as a method
+        // Choose a property over a method if
+        // a) Logically speaking it is a property of the class
+        // a) No parameters are needed
+        // b) The calculation is trivial and not time consuming
         public bool IsMorning
         {
             get
