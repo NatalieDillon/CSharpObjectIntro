@@ -5,9 +5,6 @@
     static void Main()
     {
         OOPExercises.Run();
-
-        Console.WriteLine("Press enter to exit the program");
-        Console.ReadLine();
     }
 }
 }
